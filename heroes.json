@@ -1,0 +1,67 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
+      "element": "fire"
+    },
+    {
+      "id": 2,
+      "name": "Неизвестный герой",
+      "description": "Скрывающийся в тени",
+      "element": "wind"
+    },
+    {
+      "id": "f654cd7f-8358-4de2-b49c-78cd637df7e6",
+      "name": "Antonov Ihor",
+      "element": "earth",
+      "description": "sdfsd"
+    },
+    {
+      "id": "378b0fb9-19ac-46c4-b081-764db1d25b82",
+      "name": "sensor_api",
+      "element": "fire",
+      "description": "hhynjyhn"
+    },
+    {
+      "id": "2cf5300e-7f68-41b1-902a-40b7d519d0a1",
+      "name": "sensor_client",
+      "element": "water",
+      "description": "tnjuyhn"
+    },
+    {
+      "id": "8e56a492-961e-4a35-a75e-ea9417b52f6e",
+      "name": "Бытие и время",
+      "element": "wind",
+      "description": "ертнрт"
+    }
+  ],
+  "filters": [
+    {
+      "name": "all",
+      "label": "Все",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "label": "Огонь",
+      "className": "btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "Вода",
+      "className": "btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "Ветер",
+      "className": "btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "Земля",
+      "className": "btn-secondary"
+    }
+  ]
+}
