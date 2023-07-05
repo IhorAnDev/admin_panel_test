@@ -5,6 +5,8 @@
 
 #### ✅ React
 
+#### ✅ React Transition Group
+
 #### ✅ Redux
 
 ### `yarn/npm start`
