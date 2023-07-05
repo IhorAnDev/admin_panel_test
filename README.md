@@ -5,7 +5,7 @@
 Technologies stack:
 ✅ React
 ✅ Redux
-yarn/npm start
+# yarn/npm start
 
 Runs the app in the development mode.
 yarn/npm test
