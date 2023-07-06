@@ -7,6 +7,7 @@ import {heroDeleteFetch, heroesFetched, heroesFetching, heroesFetchingError} fro
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
 import "./heroesList.scss";
+import {createSelector} from "reselect";
 
 // Задача для этого компонента:
 // При клике на "крестик" идет удаление персонажа из общего состояния
@@ -14,7 +15,21 @@ import "./heroesList.scss";
 // Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-    const {filteredHeroes, heroesLoadingStatus} = useSelector(state => state);
+
+    const filteredHeroesSelector = createSelector(
+        (state) => state.filterReducer.activeFilter,
+        (state) => state.heroReducer.heroes,
+        (filter, heroes) => {
+            if (filter === 'all') {
+                return heroes;
+            } else {
+                return heroes.filter(hero => hero.element === filter);
+            }
+        });
+
+
+    const filteredHeroes = useSelector(filteredHeroesSelector);
+    const heroesLoadingStatus = useSelector(state => state.heroReducer.heroesLoadingStatus);
     const dispatch = useDispatch();
     const {request} = useHttp();
 
@@ -41,33 +56,27 @@ const HeroesList = () => {
 
     const renderHeroesList = (arr) => {
         if (arr.length === 0) {
-            return (
-                <CSSTransition
-                    timeout={0}
-                    classNames="hero">
-                    <h5 className="text-center mt-5">Героев пока нет</h5>
-                </CSSTransition>
-            )
+            return (<CSSTransition
+                timeout={0}
+                classNames="hero">
+                <h5 className="text-center mt-5">Героев пока нет</h5>
+            </CSSTransition>)
         }
 
         return arr.map(({id, ...props}) => {
-            return (
-                <CSSTransition
-                    key={id}
-                    timeout={500}
-                    classNames="hero">
-                    <HeroesListItem  {...props} onDelete={() => onDelete(id)}/>
-                </CSSTransition>
-            )
+            return (<CSSTransition
+                key={id}
+                timeout={500}
+                classNames="hero">
+                <HeroesListItem  {...props} onDelete={() => onDelete(id)}/>
+            </CSSTransition>)
         })
     }
 
     const elements = renderHeroesList(filteredHeroes);
-    return (
-        <TransitionGroup component='ul'>
-            {elements}
-        </TransitionGroup>
-    )
+    return (<TransitionGroup component='ul'>
+        {elements}
+    </TransitionGroup>)
 }
 
 export default HeroesList;

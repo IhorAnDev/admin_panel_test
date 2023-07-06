@@ -14,7 +14,7 @@ import classNames from "classnames";
 
 const HeroesFilters = () => {
 
-    const {filters, filterLoadingStatus, activeFilter} = useSelector(state => state);
+    const {filters, filterLoadingStatus, activeFilter} = useSelector(state => state.filterReducer);
     const dispatch = useDispatch();
     const {request} = useHttp();
 

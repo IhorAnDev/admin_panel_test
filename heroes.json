@@ -19,12 +19,6 @@
       "description": "sdfsd"
     },
     {
-      "id": "378b0fb9-19ac-46c4-b081-764db1d25b82",
-      "name": "sensor_api",
-      "element": "fire",
-      "description": "hhynjyhn"
-    },
-    {
       "id": "2cf5300e-7f68-41b1-902a-40b7d519d0a1",
       "name": "sensor_client",
       "element": "water",
