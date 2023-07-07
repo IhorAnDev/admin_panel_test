@@ -1,8 +1,17 @@
+export const fetchHeroes = (request) => (dispatch) => {
+    dispatch(heroesFetching());
+    request("http://localhost:3001/heroes")
+        .then(data => dispatch(heroesFetched(data)))
+        .catch(() => dispatch(heroesFetchingError()))
+}
+
+
 export const heroesFetching = () => {
     return {
         type: 'HEROES_FETCHING'
     }
 }
+
 export const filtersFetching = () => {
     return {
         type: 'FILTERS_FETCHING'
