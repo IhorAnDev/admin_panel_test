@@ -2,18 +2,13 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {useHttp} from "../../hooks/http.hook";
 
 const initialState = {
-    filters: [],
-    filterLoadingStatus: 'idle',
-    activeFilter: 'all'
+    filters: [], filterLoadingStatus: 'idle', activeFilter: 'all'
 }
 
-export const fetchFilters = createAsyncThunk(
-    'filters/fetchFilters',
-    async () => {
-        const {request} = useHttp();
-        return await request('http://localhost:3001/filters');
-    }
-)
+export const fetchFilters = createAsyncThunk('filters/fetchFilters', async () => {
+    const {request} = useHttp();
+    return await request('http://localhost:3001/filters');
+})
 
 const filtersSlice = createSlice({
     name: 'filters',
@@ -41,4 +36,4 @@ const filtersSlice = createSlice({
 
 const {actions, reducer} = filtersSlice;
 export default reducer;
-export const {filtersFetching, filtersFetched, filtersFetchingError, activeFilterChanged} = actions;
+export const {activeFilterChanged} = actions;
