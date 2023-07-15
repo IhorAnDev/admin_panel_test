@@ -11,24 +11,6 @@
       "name": "Неизвестный герой",
       "description": "Скрывающийся в тени",
       "element": "wind"
-    },
-    {
-      "id": "f654cd7f-8358-4de2-b49c-78cd637df7e6",
-      "name": "Antonov Ihor",
-      "element": "earth",
-      "description": "sdfsd"
-    },
-    {
-      "id": "51f96cea-d94e-4f0e-9aae-6f7c484e11c3",
-      "name": "dsdsd",
-      "element": "water",
-      "description": "dsdsdsd"
-    },
-    {
-      "id": "6931d62e-cb6c-45dc-b9ee-bb66a2747191",
-      "name": "wsewq",
-      "element": "earth",
-      "description": "hyjkyu"
     }
   ],
   "filters": [

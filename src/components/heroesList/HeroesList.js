@@ -20,7 +20,7 @@ import {heroDeleteFetch} from "./heroesSlice";
 const HeroesList = () => {
 
     const filteredHeroes = useSelector(filteredHeroesSelector);
-    const heroesLoadingStatus = useSelector(state => state.heroReducer.heroesLoadingStatus);
+    const heroesLoadingStatus = useSelector(state => state.heroes.heroesLoadingStatus);
     const dispatch = useDispatch();
     const {request} = useHttp();
 

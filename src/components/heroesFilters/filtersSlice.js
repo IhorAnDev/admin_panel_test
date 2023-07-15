@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {useHttp} from "../../hooks/http.hook";
 
 const initialState = {
-    filters: [], filterLoadingStatus: 'idle', activeFilter: 'all'
+     filters: [], filterLoadingStatus: 'idle', activeFilter: 'all'
 }
 
 export const fetchFilters = createAsyncThunk('filters/fetchFilters', async () => {

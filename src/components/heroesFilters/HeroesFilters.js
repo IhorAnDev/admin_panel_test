@@ -15,7 +15,7 @@ import {activeFilterChanged} from "./filtersSlice";
 
 const HeroesFilters = () => {
 
-    const {filters, filterLoadingStatus, activeFilter} = useSelector(state => state.filterReducer);
+    const {filters, filterLoadingStatus, activeFilter} = useSelector(state => state.filters);
     const dispatch = useDispatch();
     const {request} = useHttp();
 

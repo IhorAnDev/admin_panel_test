@@ -24,10 +24,10 @@ const heroesSlice = createSlice({
     initialState,
     reducers: {
         createHero: (state, action) => {
-            state.heroes.push(action.payload);
+            heroesAdapter.addOne(state, action.payload);
         },
         heroDeleteFetch: (state, action) => {
-            state.heroes = state.heroes.filter(hero => hero.id !== action.payload);
+            heroesAdapter.removeOne(state, action.payload);
         }
     },
     extraReducers: (builder) => {
@@ -58,10 +58,9 @@ export const {
 export const {selectAll} = heroesAdapter.getSelectors(state => state.heroes);
 
 export const filteredHeroesSelector = createSelector(
-    (state) => state.filterReducer.activeFilter,
+    (state) => state.filters.activeFilter,
     selectAll,
     (filter, heroes) => {
-        console.log(heroes);
         if (filter === 'all') {
             return heroes;
         } else {
