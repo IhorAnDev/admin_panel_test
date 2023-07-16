@@ -57,6 +57,7 @@ export const {
 
 export const {selectAll} = heroesAdapter.getSelectors(state => state.heroes);
 
+
 export const filteredHeroesSelector = createSelector(
     (state) => state.filters.activeFilter,
     selectAll,

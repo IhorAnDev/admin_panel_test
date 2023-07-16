@@ -11,6 +11,18 @@
       "name": "Неизвестный герой",
       "description": "Скрывающийся в тени",
       "element": "wind"
+    },
+    {
+      "id": "330d8371-86d8-4fcb-b057-8ff272b83264",
+      "name": "Пролетая над семечкой",
+      "element": "water",
+      "description": "Спивать"
+    },
+    {
+      "id": "2ced4c5a-b0b8-4901-9a59-19141ecbd553",
+      "name": "Ihor Antonov",
+      "element": "earth",
+      "description": "Freelance"
     }
   ],
   "filters": [
