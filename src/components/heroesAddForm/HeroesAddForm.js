@@ -8,12 +8,11 @@
 // Элементы <option></option> желательно сформировать на базе
 // данных из фильтров
 
-import {useHttp} from "../../hooks/http.hook";
 import {useState} from "react";
 import {v4 as uuidv4} from 'uuid';
-import {useDispatch, useSelector} from "react-redux";
-import {createHero} from "../heroesList/heroesSlice";
+import { useSelector} from "react-redux";
 import {selectAll} from "../heroesFilters/filtersSlice";
+import {useCreateHeroMutation} from "../../api/apiSlice";
 
 const HeroesAddForm = () => {
 
@@ -21,9 +20,8 @@ const HeroesAddForm = () => {
     const [heroElement, setHeroElement] = useState("");
     const [heroDescription, setHeroDescription] = useState("");
 
+    const [createHero, {isLoading}] = useCreateHeroMutation();
 
-    const {request} = useHttp();
-    const dispatch = useDispatch();
     const {filterLoadingStatus} = useSelector(state => state.filters);
     const filters = useSelector(selectAll);
 
@@ -36,10 +34,8 @@ const HeroesAddForm = () => {
             element: heroElement,
             description: heroDescription
         }
-        request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
-            .then(data => console.log(data, "Save hero"))
-            .then(dispatch(createHero(newHero)))
-            .catch(err => console.log(err));
+
+        createHero(newHero).unwrap();
 
         setHeroName('');
         setHeroElement('');
@@ -47,7 +43,7 @@ const HeroesAddForm = () => {
     }
 
     const renderFilters = (filters, status) => {
-        if (status === 'loading') {
+        if (isLoading) {
             return <option>Loading...</option>
         } else if (status === 'error') {
             return <option>Error</option>
